@@ -40,6 +40,22 @@ public class AnimalsController {
         return this.animalList.get(id);
     }
 
+    //Update
+    @PutMapping("updateAnimal/{id}")
+    public Animals updateAnimal(@PathVariable int id, @RequestBody Animals al) {
+        this.animalList.set(id, al); //will remove existing animal and will add a new one in its place
+        return this.animalList.get(id); //returning the updated animal
+    }
 
+    //Delete
+    @DeleteMapping("/removeAnimal/{id}")
+    public Animals removeAnimal(@PathVariable int id) {
 
+        return this.animalList.remove(id);
+    }
 }
+
+
+
+
+
