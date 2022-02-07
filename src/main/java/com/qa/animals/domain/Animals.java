@@ -25,4 +25,26 @@ class Animals {
     private String diet;
 
 
+    //Generating Constructors
+    public Animals() {
+    }
+
+    public Animals(Long id, String name, String animalGroup, Double size, Double weight, Integer noOfLegs, String diet) {
+        this.id = id;
+        this.name = name;
+        this.animalGroup = animalGroup;
+        this.size = size;
+        this.weight = weight;
+        this.noOfLegs = noOfLegs;
+        this.diet = diet;
+    }
+
+    public Animals(String name, String animalGroup, Double size, Double weight, Integer noOfLegs, String diet) {
+        this.name = name;
+        this.animalGroup = animalGroup;
+        this.size = size;
+        this.weight = weight;
+        this.noOfLegs = noOfLegs;
+        this.diet = diet;
+    }
 }
