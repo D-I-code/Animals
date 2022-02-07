@@ -4,6 +4,7 @@ package com.qa.animals.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.Objects;
 
 @Entity
 class Animals {
@@ -104,5 +105,31 @@ class Animals {
 
     public void setDiet(String diet) {
         this.diet = diet;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Animals animals = (Animals) o;
+        return Objects.equals(id, animals.id) && Objects.equals(name, animals.name) && Objects.equals(animalGroup, animals.animalGroup) && Objects.equals(size, animals.size) && Objects.equals(weight, animals.weight) && Objects.equals(noOfLegs, animals.noOfLegs) && Objects.equals(diet, animals.diet);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, animalGroup, size, weight, noOfLegs, diet);
+    }
+
+    @Override
+    public String toString() {
+        return "Animals{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", animalGroup='" + animalGroup + '\'' +
+                ", size=" + size +
+                ", weight=" + weight +
+                ", noOfLegs=" + noOfLegs +
+                ", diet='" + diet + '\'' +
+                '}';
     }
 }
