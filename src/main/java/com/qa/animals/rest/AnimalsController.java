@@ -34,7 +34,7 @@ public class AnimalsController {
     }
 
     //Read by ID -Get
-    @GetMapping("/geOne/{id}")
+    @GetMapping("/getOne/{id}")
     public Animals getOne(@PathVariable int id){
 
         return this.animalList.get(id);
