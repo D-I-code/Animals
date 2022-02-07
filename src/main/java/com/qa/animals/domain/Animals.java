@@ -7,7 +7,8 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
-class Animals {
+public class Animals {
+
 
     @Id
     @Column(name = "id", nullable = false)
