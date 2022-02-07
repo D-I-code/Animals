@@ -3,9 +3,7 @@ package com.qa.animals.rest;
 import com.qa.animals.domain.Animals;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +25,21 @@ public class AnimalsController {
         Animals newAnimal = this.animalList.get(this.animalList.size() - 1);
         return new ResponseEntity<>(newAnimal, HttpStatus.CREATED);
     }
+
+    //Read
+    @GetMapping("/getAnimal")
+    public List<Animals> getAnimal() {
+
+        return this.animalList;
+    }
+
+    //Read by ID -Get
+    @GetMapping("/geOne/{id}")
+    public Animals getOne(@PathVariable int id){
+
+        return this.animalList.get(id);
+    }
+
 
 
 }
