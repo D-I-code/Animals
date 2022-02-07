@@ -47,4 +47,62 @@ class Animals {
         this.noOfLegs = noOfLegs;
         this.diet = diet;
     }
+
+    //Getters and Setters
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAnimalGroup() {
+        return animalGroup;
+    }
+
+    public void setAnimalGroup(String animalGroup) {
+        this.animalGroup = animalGroup;
+    }
+
+    public Double getSize() {
+        return size;
+    }
+
+    public void setSize(Double size) {
+        this.size = size;
+    }
+
+    public Double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Double weight) {
+        this.weight = weight;
+    }
+
+    public Integer getNoOfLegs() {
+        return noOfLegs;
+    }
+
+    public void setNoOfLegs(Integer noOfLegs) {
+        this.noOfLegs = noOfLegs;
+    }
+
+    public String getDiet() {
+        return diet;
+    }
+
+    public void setDiet(String diet) {
+        this.diet = diet;
+    }
 }
