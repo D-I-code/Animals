@@ -1,30 +1,24 @@
 package com.qa.animals.domain;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 public class Animals {
 
-
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
     private String name;
-
     private String animalGroup;
-
     private Double size;
-
     private Double weight;
-
     private Integer noOfLegs;
-
     private String diet;
+
 
 
     //Generating Constructors
@@ -51,7 +45,6 @@ public class Animals {
     }
 
     //Getters and Setters
-
     public Long getId() {
         return id;
     }
@@ -113,12 +106,17 @@ public class Animals {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Animals animals = (Animals) o;
-        return Objects.equals(id, animals.id) && Objects.equals(name, animals.name) && Objects.equals(animalGroup, animals.animalGroup) && Objects.equals(size, animals.size) && Objects.equals(weight, animals.weight) && Objects.equals(noOfLegs, animals.noOfLegs) && Objects.equals(diet, animals.diet);
+        return Objects.equals(name, animals.name) &&
+                Objects.equals(animalGroup, animals.animalGroup) &&
+                Objects.equals(size, animals.size) &&
+                Objects.equals(weight, animals.weight) &&
+                Objects.equals(noOfLegs, animals.noOfLegs) &&
+                Objects.equals(diet, animals.diet);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, animalGroup, size, weight, noOfLegs, diet);
+        return Objects.hash( name, animalGroup, size, weight, noOfLegs, diet);
     }
 
     @Override
