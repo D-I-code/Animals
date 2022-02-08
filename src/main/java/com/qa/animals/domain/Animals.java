@@ -14,7 +14,9 @@ public class Animals {
 
     private String name;
     private String animalGroup;
+    @Column(name="size_cm")
     private Double size;
+    @Column(name="weight_kg")
     private Double weight;
     private Integer noOfLegs;
     private String diet;
