@@ -1,59 +1,49 @@
 package com.qa.animals.rest;
 
 import com.qa.animals.domain.Animals;
+import com.qa.animals.service.AnimalsService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class AnimalsController {
 
-    private List<Animals> animalList = new ArrayList<>();
+    private AnimalsService service;
 
-    //Response entity -> will allow us to configure the status of the response
-
-    //C-R-U-D
-
-    //Create
-    //Response to return instead of 200: 201 - created
-    @PostMapping("/createAnimal")
-    public ResponseEntity<Animals> createAnimal(@RequestBody Animals a) {
-        this.animalList.add(a);
-        Animals newAnimal = this.animalList.get(this.animalList.size() - 1);
-        return new ResponseEntity<>(newAnimal, HttpStatus.CREATED);
+    public AnimalsController(AnimalsService service) {
+        super();
+        this.service = service;
     }
 
-    //Read
+    @PostMapping("/createAnimal")
+    public ResponseEntity<Animals> createAnimal(@RequestBody Animals al) {
+        return new ResponseEntity<>(this.service.create(al), HttpStatus.CREATED);
+    }
+
     @GetMapping("/getAnimal")
     public List<Animals> getAnimal() {
-
-        return this.animalList;
+        return this.service.read();
     }
 
-    //Read by ID -Get
     @GetMapping("/getOne/{id}")
-    public Animals getOne(@PathVariable int id){
-
-        return this.animalList.get(id);
+    public Animals getOne(@PathVariable Long id) {
+        return this.service.readOne(id);
     }
 
-    //Update
-    @PutMapping("updateAnimal/{id}")
-    public Animals updateAnimal(@PathVariable int id, @RequestBody Animals al) {
-        this.animalList.set(id, al); //will remove existing animal and will add a new one in its place
-        return this.animalList.get(id); //returning the updated animal
+    @PutMapping("/updateAnimal/{id}")
+    public Animals updateAnimal(@PathVariable Long id, @RequestBody Animals al) {
+        return this.service.update(id,al);
     }
 
-    //Delete
     @DeleteMapping("/removeAnimal/{id}")
-    public Animals removeAnimal(@PathVariable int id) {
-
-        return this.animalList.remove(id);
+    public Animals removeAnimal(@PathVariable Long id) {
+        return this.service.delete(id);
     }
 }
+
 
 
 
