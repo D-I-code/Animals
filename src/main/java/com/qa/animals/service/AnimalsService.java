@@ -18,7 +18,6 @@ public class AnimalsService implements crudInterface<Animals> {
 
     @Override
     public Animals create(Animals createI) {
-
         return this.repo.save(createI);
     }
 
@@ -30,7 +29,6 @@ public class AnimalsService implements crudInterface<Animals> {
     @Override
     public Animals update(Long id, Animals updateI) {
 
-        var toFind = this.repo.findById(id);
         Animals existing = this.repo.findById(id).orElseThrow();
         existing.setName(updateI.getName());
         existing.setAnimalGroup(updateI.getAnimalGroup());

@@ -23,7 +23,7 @@ public class AnimalsController {
         return new ResponseEntity<>(this.service.create(al), HttpStatus.CREATED);
     }
 
-    @GetMapping("/getAnimal")
+    @GetMapping("/getAnimals")
     public List<Animals> getAnimal() {
         return this.service.read();
     }
