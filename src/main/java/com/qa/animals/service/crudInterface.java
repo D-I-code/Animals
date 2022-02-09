@@ -2,16 +2,16 @@ package com.qa.animals.service;
 
 import java.util.List;
 
-public interface crudInterface<Animals> {
+public interface crudInterface<T> {
 
-    Animals create(Animals createI);
+    T create(T createI);
 
-    List<Animals> read();
+    List<T> read();
 
-    Animals update(Long id,Animals updateI);
+    T update(Long id,T updateI);
 
     // boolean delete(Long id);
-    Animals delete(Long id);
+    T delete(Long id);
 
-    Animals readOne(Long id);
+    T readOne(Long id);
 }
