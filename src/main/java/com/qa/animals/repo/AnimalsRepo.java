@@ -6,6 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AnimalsRepo extends JpaRepository<Animals, Long> {
-
-//    Object saveAndFlush();
+    
 }
