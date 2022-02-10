@@ -42,29 +42,20 @@ public class AnimalsControllerTest {
 
         Animals newA = new Animals("Viper", "reptiles", 170.2, 8.2, 0, "Carnivores");
         String newAJSON = this.mapper.writeValueAsString(newA);
-//
-//        RequestBuilder mockRequest = (RequestBuilder) post("/createAnimal").contentType(MediaType.APPLICATION_JSON).content(newAJSON);
 
         Animals savedA = new Animals(2L,"Viper", "reptiles", 170.2, 8.2, 0, "Carnivores");
 
         String savedAJSON = this.mapper.writeValueAsString(savedA);
 
-//        ResultMatcher matchStatus = status().isCreated();
-//        ResultMatcher matchBody = (ResultMatcher) content().json(savedAJSON);
-
         this.mock.perform(post("/createAnimal").contentType(MediaType.APPLICATION_JSON).content(newAJSON))
                 .andExpect(status().isCreated())
                 .andExpect(content().json(savedAJSON));
     }
+
     @Test
     public void testGetById() throws Exception {
         Animals savedAnimal = new Animals(1L, "Red Kangaroo", "Mammal", 160.3, 39.5, 2, "Herbivores");
         String savedAnimalJSON = this.mapper.writeValueAsString(savedAnimal);
-
-//        RequestBuilder request = (RequestBuilder) post("/getAnimal/" + savedAnimal.getId());
-//
-//        ResultMatcher checkStatus = status().isOk();
-//        ResultMatcher checkContent = (ResultMatcher) content().json(savedAnimalJSON);
 
         this.mock.perform(get("/getOne/1").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk()).andExpect(content().json(savedAnimalJSON));
     }
